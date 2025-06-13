@@ -18,5 +18,7 @@ jobs:
           dotnet-version: 9.0.x
       - name: Open solution folder
         run: cd App/TestApp/
+      - name: describe content
+        run: ls
       - name: Restore dependencies
         run: dotnet restore
