@@ -1,0 +1,22 @@
+name: Code Analysis on Pull Request
+on: 
+    pull_request:
+      types: 
+        - ready_for_review
+        - synchronize
+jobs:
+  dotnet_format:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+      - name: Open solution folder
+      - run: cd App/TestApp/
+      - name: Restore dependencies
+      - run: dotnet restore
