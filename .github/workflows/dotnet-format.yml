@@ -13,10 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
-      - uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
       - name: Open solution folder
-      - run: cd App/TestApp/
+        run: cd App/TestApp/
       - name: Restore dependencies
-      - run: dotnet restore
+        run: dotnet restore
