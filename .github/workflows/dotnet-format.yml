@@ -6,17 +6,15 @@ on:
         - synchronize
 jobs:
   dotnet_format:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     permissions:
       contents: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
-      - uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
-      - name: Open solution folder
-      - run: cd App/TestApp/
       - name: Restore dependencies
-      - run: dotnet restore
+        run: cd App/TestApp/ && dotnet workload restore && dotnet restore
